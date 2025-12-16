@@ -1,0 +1,33 @@
+# Environnement virtuel
+venv/
+.env/
+.venv/
+
+# Fichiers Python compilés
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Dossiers de build
+build/
+dist/
+*.egg-info/
+
+# Notebooks checkpoints
+.ipynb_checkpoints/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Sorties de données
+*.csv
+*.parquet
+*.xlsx
+
+# Logs
+*.log
+
+# Configs locales
+*.env
