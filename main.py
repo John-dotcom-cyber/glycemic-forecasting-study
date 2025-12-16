@@ -4,7 +4,7 @@ from processing import load_and_merge_diabetes_data
 import os
 import pandas as pd
 
-DATA_DIR = "data/diabetes-data-UCI"
+DATA_DIR = r"C:\Repros\glycemic-forecasting-study\data-UCI\Diabetes-Data"
 
 def main():
     df = load_and_merge_diabetes_data(DATA_DIR)

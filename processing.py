@@ -3,29 +3,20 @@
 import os
 import pandas as pd
 
-def load_and_merge_diabetes_data(data_dir):
-    """
-    Charge et fusionne tous les fichiers patients du dataset Diabetes UCI.
-    Retourne un DataFrame Pandas.
-    """
+def load_and_merge_diabetes_data(path):
+    files = [
+        f for f in os.listdir(path)
+        if os.path.isfile(os.path.join(path, f)) and f.startswith("data-")
+    ]
 
-    all_rows = []
+    if not files:
+        raise ValueError("Aucun fichier data-* trouvé dans le dossier.")
 
-    for filename in os.listdir(data_dir):
-        if filename.endswith(".txt"):
-            patient_id = filename.replace(".txt", "")
-            filepath = os.path.join(data_dir, filename)
+    dfs = []
+    for f in files:
+        full_path = os.path.join(path, f)
+        df = pd.read_csv(full_path, delim_whitespace=True, header=None)
+        df["source"] = f
+        dfs.append(df)
 
-            df = pd.read_csv(
-                filepath,
-                sep="\t",
-                header=None,
-                names=["date", "time", "code", "value"],
-                engine="python"
-            )
-
-            df["patient_id"] = patient_id
-            all_rows.append(df)
-
-    merged = pd.concat(all_rows, ignore_index=True)
-    return merged
+    return pd.concat(dfs, ignore_index=True)
