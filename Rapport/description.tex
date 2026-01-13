@@ -1,0 +1,71 @@
+\chapter{Description du dataset}
+
+\section{Origine et nature des données}
+
+Le dataset utilisé dans ce projet provient d'un ensemble de mesures de glycémie réalisées chez dix patients hospitalisés en unité de soins intensifs (ICU). Les variations glycémiques sont reconnues comme un facteur pronostique important en réanimation, notamment en raison de leur association avec la mortalité et les complications métaboliques \parencite{glycemiaICU}. 
+
+Les données initiales sont de nature temporelle : chaque patient dispose d'une série de mesures de glycémie enregistrées au cours de son séjour, avec une fréquence variable selon les pratiques cliniques.
+
+\begin{figure}[H] 
+    \centering 
+    \includegraphics[width=0.85\textwidth]{glycemie_exemple.png} 
+    \caption{Exemple de série temporelle de glycémie pour un patient ICU.} 
+    \label{fig:serie_temporelle} 
+\end{figure} 
+
+Cette représentation illustre la variabilité importante observée chez certains patients, justifiant la création de variables dérivées pour résumer leur profil glycémique.
+
+\section{Structure des données brutes}
+
+Pour chaque patient, les données brutes comprennent :
+
+\begin{itemize}
+    \item une série temporelle de valeurs de glycémie,
+    \item la durée totale d'observation,
+    \item des métadonnées cliniques minimales (identifiant patient, période d'enregistrement).
+\end{itemize}
+
+Ces données ont été transformées en un tableau patient-level, chaque ligne représentant un patient et chaque colonne une caractéristique dérivée de son profil glycémique.
+
+\section{Feature engineering}
+
+Afin de résumer les profils glycémiques individuels, plusieurs variables cliniquement pertinentes ont été calculées :
+
+\begin{itemize}
+    \item \textbf{Moyenne glycémique} : indicateur global du niveau d'hyperglycémie.
+    \item \textbf{Médiane glycémique} : plus robuste aux valeurs extrêmes.
+    \item \textbf{Coefficient de variation (CV)} : mesure de la variabilité glycémique.
+    \item \textbf{Amplitude glycémique} : différence entre les valeurs minimale et maximale.
+    \item \textbf{Pourcentage de valeurs > 180 mg/dL} : indicateur d'hyperglycémie persistante.
+    \item \textbf{Pourcentage de valeurs < 70 mg/dL} : indicateur d'hypoglycémie.
+\end{itemize}
+
+Ces variables sont couramment utilisées dans la littérature clinique pour caractériser la stabilité ou l'instabilité du contrôle glycémique en réanimation.
+
+\section{Définition du label de sévérité}
+
+Un label binaire \textit{severe} a été défini afin de distinguer les patients présentant un profil glycémique sévère. Ce label repose sur des critères cliniques simples, notamment :
+
+\begin{itemize}
+    \item une médiane glycémique élevée,
+    \item un pourcentage important de valeurs supérieures à 180 mg/dL,
+    \item une variabilité glycémique marquée.
+\end{itemize}
+
+Cette définition permet de séparer les patients en deux groupes : \textit{modéré} et \textit{sévère}. La distribution finale est équilibrée (5 patients dans chaque groupe), ce qui facilite l'analyse comparative.
+
+\section{Choix de ne pas fusionner avec des datasets externes}
+
+Plusieurs sources publiques de données sur le diabète existent (UCI, Kaggle, Mendeley Data, IEEE DataPort). Toutefois, ces datasets diffèrent fortement du contexte ICU :
+
+\begin{itemize}
+    \item populations non critiques (ambulatoires ou généralistes),
+    \item mesures non comparables (glycémie unique, imagerie, données synthétiques),
+    \item objectifs différents (diagnostic du diabète, dépistage de rétinopathie, etc.).
+\end{itemize}
+
+Pour garantir la cohérence clinique et éviter les biais liés à la fusion de populations hétérogènes, il a été décidé de travailler exclusivement sur le dataset ICU.
+
+\section{Résumé}
+
+Le dataset final contient dix patients et un ensemble de variables dérivées permettant de caractériser précisément leur profil glycémique. Malgré sa taille réduite, il constitue une base pertinente pour illustrer un pipeline complet de data science clinique.
