@@ -1,0 +1,16 @@
+\chapter{Introduction}
+
+La gestion de la glycémie en réanimation constitue un enjeu majeur pour la prise en charge des patients critiques. 
+Les variations glycémiques, en particulier l’hyperglycémie persistante ou les fluctuations importantes, sont associées à une augmentation de la morbidité, du risque infectieux et de la mortalité. Dans ce contexte, la capacité à caractériser précisément les profils glycémiques des patients et à identifier ceux présentant une sévérité accrue représente un objectif clinique essentiel.
+
+Ce projet s’inscrit dans cette perspective. À partir de données de glycémie mesurées en unité de soins intensifs (ICU), l’objectif est de construire un pipeline complet d’analyse permettant :
+
+\begin{itemize}
+    \item de transformer des données temporelles brutes en \textbf{features cliniquement pertinentes} au niveau patient,
+    \item d’explorer la structure des données via des méthodes non supervisées (corrélations, clustering hiérarchique, PCA),
+    \item de définir un \textbf{label de sévérité glycémique} cohérent avec la littérature clinique,
+    \item et d’évaluer la capacité de différents modèles supervisés à prédire cette sévérité.
+\end{itemize}
+
+Bien que le dataset étudié soit de taille réduite (10 patients), il permet d’illustrer de manière rigoureuse l’ensemble des étapes d’un projet de data science clinique : nettoyage, feature engineering, analyse exploratoire, modélisation et interprétation. 
+L’objectif n’est pas de produire un modèle généralisable à grande échelle, mais de démontrer la cohérence méthodologique et la pertinence clinique d’un pipeline reproductible.

@@ -1,0 +1,62 @@
+\chapter{Analyse exploratoire}
+
+\section{Distribution des valeurs de glycémie}
+
+L'histogramme de la Figure~\ref{fig:histogramme_glucose} montre la distribution des valeurs de glycémie dans le dataset. 
+On observe une forte asymétrie, avec une concentration importante de mesures dans les plages basses et quelques valeurs très élevées. 
+Cette distribution suggère la présence de valeurs aberrantes ou artefactuelles, notamment des glycémies nulles ou extrêmement faibles, qui nécessitent un nettoyage préalable.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{histogramme_glucose.png}
+    \caption{Distribution des valeurs de glycémie dans le dataset.}
+    \label{fig:histogramme_glucose}
+\end{figure}
+
+\section{Série temporelle de glycémie}
+
+La Figure~\ref{fig:serie_temporelle} illustre l'évolution de la glycémie pour un patient (data-01). La courbe brute est très bruitée en raison de la fréquence irrégulière des mesures et des variations rapides. Une version lissée (moyenne glissante) permet de mieux visualiser les tendances générales.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{glycemie_exemple.png}
+    \caption{Série temporelle de glycémie lissée pour le patient data-01.}
+    \label{fig:serie_temporelle}
+\end{figure}
+
+Cette visualisation met en évidence une variabilité importante, justifiant l'utilisation de métriques robustes telles que la médiane ou le coefficient de variation.
+
+\section{Corrélations entre variables dérivées}
+
+La matrice de corrélation (Figure~\ref{fig:correlation}) permet d'identifier les relations entre les différentes variables dérivées. Certaines variables sont fortement corrélées, notamment la moyenne et la médiane, ou encore l'amplitude et le coefficient de variation. Ces redondances doivent être prises en compte lors de la modélisation.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{correlation.png}
+    \caption{Matrice de corrélation des variables dérivées.}
+    \label{fig:correlation}
+\end{figure}
+
+\section{Clustering hiérarchique}
+
+Le dendrogramme présenté Figure~\ref{fig:dendrogramme} montre deux groupes naturels de patients, cohérents avec la définition du label \textit{severe}. 
+Cette observation confirme que la structure du dataset reflète bien deux profils glycémiques distincts.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{dendrogramme.png}
+    \caption{Dendrogramme hiérarchique des patients basé sur les variables dérivées.}
+    \label{fig:dendrogramme}
+\end{figure}
+
+\section{Analyse en composantes principales}
+
+La Figure~\ref{fig:pca} présente la projection des patients dans le plan défini par les deux premières composantes principales. 
+Cette représentation permet de visualiser la structure globale des données et de vérifier si les patients présentant un profil glycémique sévère se distinguent des autres dans l'espace des variables dérivées.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{images/pca.png}
+    \caption{Projection des patients dans le plan des deux premières composantes principales.}
+    \label{fig:pca}
+\end{figure}
