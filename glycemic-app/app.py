@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import pickle
+import os
 from preprocessing import preprocess_data
 from features import compute_features
 from visualization import plot_glucose_curve, plot_feature_importance
@@ -29,7 +30,10 @@ if uploaded_file is not None:
     st.write(features)
 
     # Charger le modèle
-    with open("Random_Forest.pkl", "rb") as f:
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    model_path = os.path.join(current_dir, "Random_Forest.pkl")
+
+    with open(model_path, "rb") as f:
         model = pickle.load(f)
 
     # Prédiction
@@ -45,3 +49,7 @@ if uploaded_file is not None:
     # Importance des variables
     st.subheader("📊 Importance des variables")
     st.pyplot(plot_feature_importance(model, features.index))
+
+    
+
+
