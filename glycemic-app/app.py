@@ -15,12 +15,11 @@ st.write("Prototype interactif pour analyser un profil glycémique et prédire u
 
 st.subheader("📥 Télécharger des fichiers CSV d'exemple")
 
-files = {
-     "- data-01-normal.csv": "https://github.com/John-dotcom-cyber/glycemic-forecasting-study/tree/main/glycemic-app/patients_demo/data-01-normal.csv",
-     "- data-02-severe.csv": "https://github.com/John-dotcom-cyber/glycemic-forecasting-study/tree/main/glycemic-app/patients_demo/data-02-severe.csv",
-     "- data-03-instable.csv":"https://github.com/John-dotcom-cyber/glycemic-forecasting-study/tree/main/glycemic-app/patients_demo/data-03-instable.csv", 
-     "- data-04-modere.csv":"https://github.com/John-dotcom-cyber/glycemic-forecasting-study/tree/main/glycemic-app/patients_demo/data-04-modere.csv",
-     "- data-05-hypoglycemique.csv":"https://github.com/John-dotcom-cyber/glycemic-forecasting-study/tree/main/glycemic-app/patients_demo/data-05-hypoglycemique.csv"
+files = { "data-01-normal.csv": "https://raw.githubusercontent.com/John-dotcom-cyber/glycemic-forecasting-study/main/glycemic-app/patients_demo/data-01-normal.csv", 
+         "data-02-severe.csv": "https://raw.githubusercontent.com/John-dotcom-cyber/glycemic-forecasting-study/main/glycemic-app/patients_demo/data-02-severe.csv", 
+         "data-03-instable.csv": "https://raw.githubusercontent.com/John-dotcom-cyber/glycemic-forecasting-study/main/glycemic-app/patients_demo/data-03-instable.csv", 
+         "data-04-modere.csv": "https://raw.githubusercontent.com/John-dotcom-cyber/glycemic-forecasting-study/main/glycemic-app/patients_demo/data-04-modere.csv", 
+         "data-05-hypoglycemique.csv": "https://raw.githubusercontent.com/John-dotcom-cyber/glycemic-forecasting-study/main/glycemic-app/patients_demo/data-05-hypoglycemique.csv" 
 }
 
 for file_name, url in files.items():
