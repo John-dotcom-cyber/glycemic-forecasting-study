@@ -20,6 +20,8 @@ st.markdown(""" ### 📁 Fichiers CSV d'exemple
             - [data-03-instable.csv](https://github.com/John-dotcom-cyber/glycemic-forecasting-study/tree/main/glycemic-app/patients_demo/data-03-instable.csv) 
             - [data-04-modere.csv](https://github.com/John-dotcom-cyber/glycemic-forecasting-study/tree/main/glycemic-app/patients_demo/data-04-modere.csv)
             - [data-05-hypoglycemique.csv](https://github.com/John-dotcom-cyber/glycemic-forecasting-study/tree/main/glycemic-app/patients_demo/data-05-hypoglycemique.csv) 
+""")
+st.markdown("""
 Ces fichiers peuvent être importés dans l'application via le bouton d'upload ci-dessus. """)
 
 uploaded_file = st.file_uploader("📁 Importer un fichier CSV de mesures glycémiques", type=["csv"])
