@@ -32,14 +32,18 @@ for file_name, url in files.items():
         mime="text/csv"
     )
 
-st.markdown("""Ces fichiers peuvent être importés dans l'application via le bouton d'upload ci-dessus. """)
+st.markdown("Ces fichiers peuvent être importés dans l'application via le bouton d'upload ci-dessus.") 
 
 uploaded_file = st.file_uploader("📁 Importer un fichier CSV de mesures glycémiques", type=["csv"])
 
 if uploaded_file is not None:
-    df = pd.read_csv(uploaded_file)
-    st.subheader("Aperçu des données brutes")
-    st.dataframe(df.head())
+    try:
+        df = pd.read_csv(uploaded_file)
+        st.subheader("Aperçu des données brutes")
+        st.dataframe(df.head())
+    except Exception:
+        st.error("Le fichier n'a pas pu être lu. Assurez-vous qu'il s'agit d'un CSV valide.") 
+        st.stop()
 
     # Prétraitement
     df_clean = preprocess_data(df)
