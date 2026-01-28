@@ -22,7 +22,7 @@ dist/
 Thumbs.db
 
 # Sorties de données
-*.csv
+!patients_demo/*.csv
 *.parquet
 *.xlsx
 
