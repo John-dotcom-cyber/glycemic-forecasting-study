@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import pickle
 import os
+import requests
 from preprocessing import preprocess_data
 from features import compute_features
 from visualization import plot_glucose_curve, plot_feature_importance
@@ -10,6 +11,31 @@ st.set_page_config(page_title="Glycemic Severity Predictor", layout="wide")
 
 st.title("🔬 Glycemic Severity Predictor")
 st.write("Prototype interactif pour analyser un profil glycémique et prédire un risque sévère.")
+
+st.subheader("📥 Télécharger un fichier CSV d'exemple")
+
+csv_url = "https://github.com/John-dotcom-cyber/glycemic-forecasting-study/tree/main/glycemic-app/patients_demo/data-01-normal.csv"
+
+
+st.subheader("📥 Télécharger des fichiers CSV d'exemple")
+
+files = {
+     "- data-01-normal.csv": "https://github.com/John-dotcom-cyber/glycemic-forecasting-study/tree/main/glycemic-app/patients_demo/data-01-normal.csv",
+     "- data-02-severe.csv": "https://github.com/John-dotcom-cyber/glycemic-forecasting-study/tree/main/glycemic-app/patients_demo/data-02-severe.csv",
+     "- data-03-instable.csv":"https://github.com/John-dotcom-cyber/glycemic-forecasting-study/tree/main/glycemic-app/patients_demo/data-03-instable.csv", 
+     "- data-04-modere.csv":"https://github.com/John-dotcom-cyber/glycemic-forecasting-study/tree/main/glycemic-app/patients_demo/data-04-modere.csv",
+     "- data-05-hypoglycemique.csv":"https://github.com/John-dotcom-cyber/glycemic-forecasting-study/tree/main/glycemic-app/patients_demo/data-05-hypoglycemique.csv"
+}
+
+for file_name, url in files.items():
+    response = requests.get(url)
+    st.download_button(
+        label=f"Télécharger {file_name}",
+        data=response.content,
+        file_name=file_name,
+        mime="text/csv"
+    )
+
 
 # section de téléchargement
 st.markdown(""" ### 📁 Fichiers CSV d'exemple 
