@@ -29,7 +29,7 @@ if uploaded_file is not None:
     st.write(features)
 
     # Charger le modèle
-    with open("Random Forest.pkl", "rb") as f:
+    with open("Random_Forest.pkl", "rb") as f:
         model = pickle.load(f)
 
     # Prédiction
