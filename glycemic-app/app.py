@@ -12,10 +12,6 @@ st.set_page_config(page_title="Glycemic Severity Predictor", layout="wide")
 st.title("🔬 Glycemic Severity Predictor")
 st.write("Prototype interactif pour analyser un profil glycémique et prédire un risque sévère.")
 
-st.subheader("📥 Télécharger un fichier CSV d'exemple")
-
-csv_url = "https://github.com/John-dotcom-cyber/glycemic-forecasting-study/tree/main/glycemic-app/patients_demo/data-01-normal.csv"
-
 
 st.subheader("📥 Télécharger des fichiers CSV d'exemple")
 
@@ -36,19 +32,7 @@ for file_name, url in files.items():
         mime="text/csv"
     )
 
-
-# section de téléchargement
-st.markdown(""" ### 📁 Fichiers CSV d'exemple 
-            Vous pouvez télécharger des fichiers de test directement depuis GitHub : 
-            glycemic-app/patients_demo
-            - [data-01-normal.csv](https://github.com/John-dotcom-cyber/glycemic-forecasting-study/tree/main/glycemic-app/patients_demo/data-01-normal.csv) 
-            - [data-02-severe.csv](https://github.com/John-dotcom-cyber/glycemic-forecasting-study/tree/main/glycemic-app/patients_demo/data-02-severe.csv)
-            - [data-03-instable.csv](https://github.com/John-dotcom-cyber/glycemic-forecasting-study/tree/main/glycemic-app/patients_demo/data-03-instable.csv) 
-            - [data-04-modere.csv](https://github.com/John-dotcom-cyber/glycemic-forecasting-study/tree/main/glycemic-app/patients_demo/data-04-modere.csv)
-            - [data-05-hypoglycemique.csv](https://github.com/John-dotcom-cyber/glycemic-forecasting-study/tree/main/glycemic-app/patients_demo/data-05-hypoglycemique.csv) 
-""")
-st.markdown("""
-Ces fichiers peuvent être importés dans l'application via le bouton d'upload ci-dessus. """)
+st.markdown("""Ces fichiers peuvent être importés dans l'application via le bouton d'upload ci-dessus. """)
 
 uploaded_file = st.file_uploader("📁 Importer un fichier CSV de mesures glycémiques", type=["csv"])
 
