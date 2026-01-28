@@ -53,7 +53,12 @@
 \maketitle
 
 \begin{abstract}
-Le résumé parle de... .
+Ce travail explore la possibilité de prédire un profil glycémique sévère à partir de mesures continues de glucose. 
+Après un nettoyage rigoureux des données et la construction de variables dérivées (moyenne, médiane, variabilité, amplitude, pourcentage d’hyperglycémies et d’hypoglycémies), plusieurs modèles de classification ont été évalués. 
+Le dataset présentait un déséquilibre extrême entre les classes (67 patients non sévères contre 3 sévères), rendant l’apprentissage initialement impossible pour les modèles supervisés. 
+L’utilisation de la méthode SMOTE a permis de rééquilibrer les classes et d’améliorer significativement les performances, notamment en termes de rappel, essentiel pour la détection des cas sévères. 
+Les modèles simples tels que la régression logistique et le Random Forest atteignent alors d’excellents résultats, démontrant que des features statistiques basiques suffisent à capturer des patterns pertinents dans les profils glycémiques. 
+Malgré la taille réduite de l’échantillon, cette étude montre la faisabilité d’une approche automatisée pour caractériser des profils glycémiques et ouvre la voie à la création d’un prototype applicatif destiné à une utilisation clinique ou éducative.
 \end{abstract}
 
 % Inclusion des sections
