@@ -1,0 +1,31 @@
+\chapter{Modélisation}
+
+\section{Préparation des données}
+
+Les variables dérivées présentées dans la section précédente constituent la base de la modélisation. Chaque patient est représenté par un vecteur de caractéristiques comprenant la moyenne glycémique, la médiane, le coefficient de variation, l'amplitude, ainsi que les pourcentages de mesures en hyperglycémie et en hypoglycémie.
+
+Les valeurs manquantes ont été supprimées et les variables ont été normalisées lorsque nécessaire. Le label \textit{severe} a été construit à partir de critères cliniques simples, basés sur la médiane glycémique, la proportion d'hyperglycémies et la variabilité intra-patient.
+
+\section{Méthodes de classification}
+
+Plusieurs modèles supervisés ont été évalués afin de prédire le statut \textit{severe} :
+
+\begin{itemize}
+    \item \textbf{Régression logistique} : modèle linéaire de référence.
+    \item \textbf{Random Forest} : ensemble d'arbres de décision permettant de capturer des interactions non linéaires.
+    \item \textbf{Gradient Boosting (XGBoost)} : méthode performante pour les petits jeux de données tabulaires.
+\end{itemize}
+
+Chaque modèle a été entraîné sur un ensemble d'apprentissage représentant 80\% des patients, le reste étant utilisé pour l'évaluation. Une validation croisée à 5 plis a été utilisée pour stabiliser les estimations de performance.
+
+\section{Métriques d'évaluation}
+
+Les performances ont été évaluées selon plusieurs métriques complémentaires :
+
+\begin{itemize}
+    \item \textbf{AUC-ROC} : capacité du modèle à distinguer les deux classes.
+    \item \textbf{F1-score} : compromis entre précision et rappel.
+    \item \textbf{Recall} : capacité à détecter les patients sévères.
+\end{itemize}
+
+Ces métriques sont particulièrement adaptées à un problème potentiellement déséquilibré.

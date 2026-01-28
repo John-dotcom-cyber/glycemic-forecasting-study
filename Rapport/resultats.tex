@@ -1,0 +1,38 @@
+\chapter{Résultats}
+
+\section{Performances des modèles}
+
+Le Tableau~\ref{tab:perf} présente les performances obtenues par les différents modèles.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lccc}
+\hline
+\textbf{Modèle} & \textbf{AUC} & \textbf{F1-score} & \textbf{Recall} \\
+\hline
+Régression logistique & 1.00 & 1.00 & 1.00 \\
+Random Forest 1.00 & 1.00 & 1.00 & 1.00 \\
+Gradient Boosting 1.00 & 1.00 & 1.00 & 1.00 \\
+\hline
+\end{tabular}
+\caption{Performances des modèles de classification.}
+\label{tab:perf}
+\end{table}
+
+\section{Courbes ROC}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{images/roc_smote.png}
+    \caption{Courbes ROC des différents modèles.}
+    \label{fig:roc}
+\end{figure}
+
+\section{Importance des variables}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{images/feature_importance.png}
+    \caption{Importance des variables selon le modèle Random Forest.}
+    \label{fig:importance}
+\end{figure}

@@ -1,0 +1,11 @@
+\chapter{Discussion}
+
+Les résultats obtenus montrent que les modèles supervisés sont capables de distinguer efficacement les patients présentant un profil glycémique sévère, à condition de traiter correctement le déséquilibre important du dataset. En effet, la classe minoritaire ne comptait initialement que trois patients sévères, rendant l’apprentissage impossible pour les modèles basés sur des arbres, comme le Gradient Boosting ou XGBoost.
+
+L’application de la méthode SMOTE a permis de générer des exemples synthétiques cohérents et de rééquilibrer les classes. Après cette étape, les performances des modèles se sont nettement améliorées, en particulier en termes de rappel, ce qui est essentiel pour la détection des cas sévères.
+
+La régression logistique et le Random Forest obtiennent des performances élevées, ce qui suggère que les variables dérivées (moyenne, médiane, variabilité, amplitude, pourcentage d’hyperglycémies et d’hypoglycémies) capturent suffisamment d’information pour caractériser les profils glycémiques. L’importance des variables montre que la variabilité intra-patient et la proportion d’hyperglycémies jouent un rôle déterminant dans la classification.
+
+Cependant, plusieurs limites doivent être soulignées. Le nombre total de patients reste faible, ce qui limite la généralisation des résultats. De plus, les données proviennent de mesures hétérogènes et parfois bruitées, ce qui peut introduire des biais. Enfin, l’utilisation de SMOTE, bien qu’efficace, génère des données artificielles qui ne remplacent pas un échantillon clinique plus large et plus équilibré.
+
+Ces résultats doivent donc être interprétés avec prudence, mais ils montrent le potentiel d’une approche basée sur des features simples pour caractériser des profils glycémiques complexes.
